@@ -1,0 +1,23 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %} - Inicio {% endblock %}
+
+
+{% block extra_css %} 
+    <link rel="stylesheet" href="{% static 'web/css/index.css' %} ">
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid">
+        <article>
+            <p class="text-center mt-3 text-light">
+            Bienvenido a la App Web, Administrador de Reservas. Usted podra agregar una reserva, ver las reservas activas, eliminarlas y modificarlas.
+            </p>
+        </article>
+    </section>
+{% endblock %}
+
+
+
+

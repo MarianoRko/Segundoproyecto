@@ -1,0 +1,21 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %} - Crear nueva Tarea {% endblock %}
+{% block section_title %} Crear nueva Tarea {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reserva_crear.css' %}">
+{% endblock %}
+
+{% block main %}
+    <article>
+        <section class="container-fluid mt-3 p-3">
+            <form method="POST" class="d-flex justify-content-between" action="{% url 'reserva_crear' %}">
+                {% csrf_token %}
+                {{ form }}
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </section>
+    </article>
+{% endblock %}

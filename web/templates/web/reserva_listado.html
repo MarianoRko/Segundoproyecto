@@ -1,0 +1,53 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %} - Listado {% endblock %}
+{% block section_title %} Listado de Reservas {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'web/css/reserva_listado.css' %}">
+{% endblock %}
+
+{% block main %}
+<h3 class="text-center text-light">Listado de Reservas</h3>
+{% for reserva in reserva_listado %}
+
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Hotel</th>
+                <th>Destino</th>
+                <th>PAX</th>
+                <th>Fecha de Arribo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{reserva.hotel}}</td>
+                <td>{{reserva.destino}}</td>
+                <td>{{reserva.pasajeros}}</td>
+                <td>{{reserva.fecha_arribo}}</td>
+                <td>
+                    <div class="acciones d-flex justify-content-around">
+                        <a class="ver btn btn-primary" type="button"
+                            href="{% url 'reserva_detalle' pk=reserva.id %}">Ver</a>
+                        <a class="modificar btn btn-info" type="button"
+                            href="{% url 'reserva_modificar' pk=reserva.id %}">Modificar</a>
+                        <a class="borrar btn btn-danger" type="button"
+                            href="{% url 'reserva_borrar' pk=reserva.id %}">Borrar</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% empty %}
+<article class="text-center text-danger bg-dark">
+    No hay reservas cargadas.
+</article>
+{% endfor %}
+
+{% endblock %}

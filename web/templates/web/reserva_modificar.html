@@ -1,0 +1,20 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %} Modificar Reserva {% endblock %}
+{% block section_title %} Modificar Reserva {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'web/css/reserva_modificar.css' %}">
+{% endblock %}
+
+{% block main %}
+    <article>
+        <h3 class="text-center text-light mb-3">Modificar reserva</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input class="btn btn-primary" type="submit" value="Actualizar">
+        </form>
+    </article>
+{% endblock %}

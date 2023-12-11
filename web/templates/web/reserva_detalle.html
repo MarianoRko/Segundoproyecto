@@ -1,0 +1,23 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block title %} Detalle de las reservas {% endblock %}
+{% block section_title %} Detalle de las reservas {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'web/css/reserva_detalle.css' %}">
+{% endblock %}
+
+{% block main %}
+    <section>
+        <article>
+            <div class="alert alert-danger" role="alert">
+                <p class="text-center">Arriba a : {{object.destino}} el día {{object.fecha_arribo}}</p>
+                <p class="text-center">Hospedaje: {{object.hotel}}</p>
+                <p class="text-center">Cantidad de pasajeros: {{object.pasajeros}}</p>
+            </div>
+              
+            
+        </article>
+    </section>
+{% endblock %}
